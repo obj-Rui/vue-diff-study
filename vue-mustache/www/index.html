@@ -1,0 +1,49 @@
+<!--
+ * @Author: wangrui
+ * @Date: 2021-09-12 22:59:18
+ * @LastEditTime: 2021-09-15 15:03:00
+ * @LastEditors: wangrui
+ * @Description: 静态页面
+ * @FilePath: \vue-mustache\www\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>我是静态文件html</h1>
+    <div id="app"></div>
+    <script src="/ceshi/bundles.js"></script>
+    <script>
+      let template = `
+          <div>
+          <ol>
+            {{#student}}
+              <li>
+                学生{{name}}的爱好是
+                <ol>
+                  {{#hobbies}}
+                  <li>{{.}}</li>
+                  {{/hobbies}}  
+                </ol>
+              </li>
+            {{/student}}
+          </ol>
+        </div>
+    `;
+      let data ={
+        student: [
+        {'name': '小明', 'hobbies':['游泳','健身']},
+        {'name': '小红', 'hobbies':['足球','篮球','羽毛球']},
+        {'name': '小强', 'hobbies':['吃饭','睡觉']},
+      ]
+      }
+      const app = document.querySelector('#app')
+      app.innerHTML =  MyVUE_TEMPLATE.render(template, data);
+    </script>
+  </body>
+</html>
