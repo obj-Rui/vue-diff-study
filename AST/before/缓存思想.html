@@ -1,0 +1,50 @@
+<!--
+ * @Author: wangrui
+ * @Date: 2021-10-09 16:18:06
+ * @LastEditTime: 2021-10-09 17:09:00
+ * @LastEditors: wangrui
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let catches = {}
+    
+    function fib(n){
+      if(catches.hasOwnProperty(n)){
+        return catches[n]
+      }
+      console.count('计数')
+      const value =  n == 1 || n == 2 ?  1 : fib(n-1) + fib(n-2) 
+      catches[n] = value
+      return value
+    }
+    fib(10)
+    /**
+    * @Description: 方法二
+    */
+   let arr = [1,1]
+   function method(n){
+    if(n<3){
+      return arr[n]
+    }
+    while(arr.length < n){
+      arr.push(arr[arr.length-1] + arr[arr.length-2])
+    }
+    
+    console.log(arr)
+    return arr[n-1]
+   }
+   console.log(method(10),'====>')
+   
+  </script>
+
+</body>
+</html>

@@ -1,12 +1,13 @@
 /*
  * @Author: wangrui
  * @Date: 2021-09-27 09:28:33
- * @LastEditTime: 2021-09-29 17:17:31
+ * @LastEditTime: 2021-10-05 11:49:29
  * @LastEditors: wangrui
  * @Description: 
  * @FilePath: \vue-origin-study\vue-response\src\index.js
  */
 import observe from'./observe.js'
+import Watcher from './Watcher.js'
 
 let obj = {
   a:{
@@ -19,5 +20,9 @@ let obj = {
   d:[1,2,45]
 }
 observe(obj)
-obj.d.splice(1,0,12,123)
-console.log(obj.d)
+new Watcher(obj,'a.m.n',(val,newValue)=>{
+  console.log('监听成功====', val,newValue)
+})
+// obj.a.m.n = 99
+// obj.d.splice(1,0,12,123)
+console.log(obj)

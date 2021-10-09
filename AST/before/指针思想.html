@@ -1,0 +1,36 @@
+<!--
+ * @Author: wangrui
+ * @Date: 2021-10-09 15:55:50
+ * @LastEditTime: 2021-10-09 16:07:29
+ * @LastEditors: wangrui
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let begin= 0
+    let end = 0
+    let maxLength = 0
+    let maxChar = ''
+    const str = 'aaaaaaaaaaaaffffffffffsdfdsfexfdfvvvvvvaggggwwwbbggwww'
+    while(begin<str.length){
+      if(str[begin] != str[end]){
+        if(end - begin > maxLength){
+          maxLength = end -begin
+          maxChar = str[maxLength]
+        }
+        begin = end
+      }
+      end ++
+    }
+    console.log('最长字符',maxChar,'长度',maxLength)
+  </script>
+</body>
+</html>
